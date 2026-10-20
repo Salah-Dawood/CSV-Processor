@@ -34,7 +34,7 @@ public class CsvService {
     }
 
     public List<Employee> parseCsv(MultipartFile file) throws IOException {
-        List<Employee> employess = new ArrayList<>();
+        List<Employee> employees = new ArrayList<>();
         String line;
 
         try (BufferedReader br = new BufferedReader(new InputStreamReader(file.getInputStream()))) {
@@ -43,7 +43,7 @@ public class CsvService {
 
                 System.out.println(Arrays.toString(emp));
 
-                employess.add(new Employee(
+                employees.add(new Employee(
                         Long.parseLong(emp[0]),
                         emp[1],
                         Double.parseDouble(emp[2]),
@@ -55,6 +55,6 @@ public class CsvService {
         } catch (IOException | RuntimeException e) {
                 throw new RuntimeException("Failed reading or parsing CSV file: " + e.getMessage(), e);
         }
-        return employess;
+        return employees;
     }
 }

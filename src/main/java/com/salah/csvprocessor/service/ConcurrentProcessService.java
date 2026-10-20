@@ -30,7 +30,7 @@ public class ConcurrentProcessService {
         }
     }
 
-    public void processEmployee(Employee emp){
+    public synchronized void processEmployee(Employee emp){
         if (!validIncrement(emp)){
             System.out.println(emp.getId() + " " + emp.getJoinedDate() + " " + emp.getProjectCompletion());
             return;
