@@ -27,6 +27,9 @@ public class Employee {
             default -> {
             }
         }
+        if (projectCompletion > 0.8){
+            percentage *= 1.5;
+        }
         int i = getEmploymentTime(this);
         while (i > 0){
             salary = salary * percentage;
@@ -37,7 +40,7 @@ public class Employee {
 
     @Override
     public String toString(){
-        return id + ": Employee: " + name + " Role: " + role + " Joined Date: " + joinedDate + " Salary: " + salary + " Project completion %: " + projectCompletion;
+        return id + ": Employee: " + name + " Role: " + role + " Joined Date: " + joinedDate + " Salary: " + salary + " Project completion: %" + (int) (projectCompletion*100);
     }
 
     public int getEmploymentTime(Employee emp){

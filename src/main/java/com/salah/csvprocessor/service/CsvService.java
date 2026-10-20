@@ -27,6 +27,9 @@ public class CsvService {
         List<Employee> employees = parseCsv(file);
 
         concurrentProcessService.processEmployees(employees);
+        for (Employee e : employees){
+            System.out.println(e);
+        }
         return new ResponseEntity<>("NICE", HttpStatus.OK);
     }
 
