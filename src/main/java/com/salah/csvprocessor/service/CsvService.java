@@ -30,7 +30,7 @@ public class CsvService {
         for (Employee e : employees){
             System.out.println(e);
         }
-        return new ResponseEntity<>("NICE", HttpStatus.OK);
+        return new ResponseEntity<>(employees, HttpStatus.OK);
     }
 
     public List<Employee> parseCsv(MultipartFile file) throws IOException {
