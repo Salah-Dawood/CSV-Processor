@@ -17,8 +17,16 @@ import java.util.List;
 @Service
 public class CsvService {
 
+    private final ConcurrentProcessService concurrentProcessService;
+
+    public CsvService(ConcurrentProcessService concurrentProcessService) {
+        this.concurrentProcessService = concurrentProcessService;
+    }
+
     public ResponseEntity<?> processCsv(MultipartFile file) throws IOException {
         List<Employee> employees = parseCsv(file);
+
+        concurrentProcessService.processEmployees(employees);
         return new ResponseEntity<>("NICE", HttpStatus.OK);
     }
 
