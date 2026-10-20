@@ -28,7 +28,7 @@ public class Employee {
             }
         }
         if (projectCompletion > 0.8){
-            percentage *= 1.5;
+            percentage = (percentage - 1) * 1.5 + 1;
         }
         int i = getEmploymentTime(this);
         while (i > 0){
